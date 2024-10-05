@@ -1,16 +1,33 @@
 import React from "react";
-// import image1 from "/../Images/bg1.jpg";
 import reactImage from "./Images/react.png";
 import jsImage from "./Images/js.png";
 import firebaseImage from "./Images/firebase.jpg";
 import profileImage from "./Images/squirrel.jpg"
+import gsap from 'gsap';
 
 const HomePage = () => {
+
+  const Icons = document.querySelectorAll('.rotate');
+  Icons.forEach((icon) => {
+    icon.addEventListener("mouseover", () => {      
+      gsap.to(icon, {
+        rotation: "360",
+        duration: 1,
+      });
+    });
+    icon.addEventListener("mouseout", function() {
+      gsap.to(icon, {
+        rotation: 0,
+        duration: 1,
+      });
+    });
+  })
+
   return (
     <div className="container text-center">
-      <h1>Shin Code</h1>
+      <h1>PORTFOLIO</h1>
 
-      <img src={profileImage} className="profileImage" />
+      <img src={profileImage} className="profileImage rotate" />
 
       <p>
         ポートフォリオ試作
@@ -28,8 +45,8 @@ const HomePage = () => {
           <div class="row text-center">
             <div class="col-md-4">
               <span class="fa-stack fa-4x">
-                <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                <i class="fas fa-shopping-cart fa-stack-1x fa-inverse"></i>
+                <i class="fas fa-circle fa-stack-2x text-primary rotate"></i>
+                <i class="fas fa-shopping-cart fa-stack-1x fa-inverse rotate"></i>
               </span>
               <h4 class="my-3">ECサイト</h4>
               <p class="text-muted">
@@ -40,8 +57,8 @@ const HomePage = () => {
             </div>
             <div class="col-md-4">
               <span class="fa-stack fa-4x">
-                <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
+                <i class="fas fa-circle fa-stack-2x text-primary rotate"></i>
+                <i class="fas fa-laptop fa-stack-1x fa-inverse rotate"></i>
               </span>
               <h4 class="my-3">レスポンシブサイト</h4>
               <p class="text-muted">
@@ -52,8 +69,8 @@ const HomePage = () => {
             </div>
             <div class="col-md-4">
               <span class="fa-stack fa-4x">
-                <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                <i class="fas fa-lock fa-stack-1x fa-inverse"></i>
+                <i class="fas fa-circle fa-stack-2x text-primary rotate"></i>
+                <i class="fas fa-lock fa-stack-1x fa-inverse rotate"></i>
               </span>
               <h4 class="my-3">ウェブセキュリティ</h4>
               <p class="text-muted">
@@ -71,17 +88,17 @@ const HomePage = () => {
           <h1 class="title">スキル</h1>
           <div class="row text-center">
             <div class="col-md-4 services">
-              <img src={reactImage} />
+              <img src={reactImage} className="rotate" />
               <h4>React</h4>
               <p>Reactがつかえます</p>
             </div>
             <div class="col-md-4 services">
-              <img src={jsImage} />
+              <img src={jsImage} className="rotate" />
               <h4>HTML/CSS</h4>
               <p>HTML/CSSがつかえます</p>
             </div>
             <div class="col-md-4 services">
-              <img src={firebaseImage} />
+              <img src={firebaseImage} className="rotate" />
               <h4>Firebase</h4>
               <p>Firebaseがつかえます</p>
             </div>
